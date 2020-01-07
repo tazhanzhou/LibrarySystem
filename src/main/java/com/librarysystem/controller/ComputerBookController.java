@@ -19,15 +19,7 @@ public class ComputerBookController {
 	@Autowired
 	BookService service;
 	
-	@RequestMapping("/testmethod")
-	public ModelAndView getName() {
-		ModelAndView mv = new ModelAndView("test-jsp");
-		mv.addObject("obj", "one");
-
-		return mv;
-	}
-	
-	@RequestMapping(value = "/getbooks", method = RequestMethod.GET)
+	@RequestMapping(value = "/getcomputerbooks", method = RequestMethod.GET)
 	public ModelAndView getComputerBookList() {
 		ModelAndView modelView = new ModelAndView("book-list");
 
@@ -36,22 +28,5 @@ public class ComputerBookController {
 		
 		return modelView;
 	}
-	
-//	@RequestMapping(value = "/book/{name}", method = RequestMethod.GET)
-//	public ModelAndView getComputerBook(@PathVariable("name") String name) {
-//		ModelAndView modelView = new ModelAndView("book");
-//		modelView.addObject("bookName", name);
-//		
-//		return modelView;
-//	}
-//	
-	@RequestMapping(value = "/bookbyType", method = RequestMethod.GET)
-	public ModelAndView getComputerBook(@RequestParam("type") String type) {
-		ModelAndView modelView = new ModelAndView("book");
-		modelView.addObject("bookType", type);
-		
-		return modelView;
-	}
-
 
 }
