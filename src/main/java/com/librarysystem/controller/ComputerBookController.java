@@ -1,5 +1,4 @@
-package com.librarysystem.controller;
-
+package controller;
 
 import java.util.List;
 
@@ -9,18 +8,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.librarysystem.service.BookService;
-import com.librarysystem.model.Book;
+import model.Book;
+import service.BookService;
 
 @Controller
 @RequestMapping("/computerbooks")
-public class ComputerBookController {
+public class ComputerBooksController {
 	@Autowired
 	BookService service;
 	
 	@RequestMapping(value = "/getcomputerbooks", method = RequestMethod.GET)
 	public ModelAndView getComputerBookList() {
-		ModelAndView modelView = new ModelAndView("book-list");
+		ModelAndView modelView = new ModelAndView("computer-books-list");
 
 		List<Book> books = service.getComputerBooks();
 		modelView.addObject("bookList", books);
@@ -29,3 +28,4 @@ public class ComputerBookController {
 	}
 
 }
+
